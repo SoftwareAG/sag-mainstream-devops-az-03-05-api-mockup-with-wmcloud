@@ -2,7 +2,7 @@
 
 echo "##vso[task.setvariable variable=JOB_TIMESTAMP;]$(date +%y-%m-%d'T'%H.%M.%S)"
 
-logI "Sourcing secure information: Storage Account coordinates and credentials..."
+echo "Sourcing secure information: Storage Account coordinates and credentials..."
 chmod u+x "${SECUREINFO_SECUREFILEPATH}"
 . "${SECUREINFO_SECUREFILEPATH}"
 
