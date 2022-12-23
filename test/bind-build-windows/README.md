@@ -4,7 +4,6 @@ This test harness is provided to verify the build procedure with `buildah` insta
 
 ## Usage
 
-- copy the file `build.secrets.EXAMPLE.env` in `build.secrets.env`, in other works remove `EXAMPLE` token from the file name
-- edit `build.secrets.env` and `build.parameters.env` according to your environment
-- execute `run.bat`. If you are not using Windows execute the command within
-
+- Copy the file `build.secrets.EXAMPLE.env` in `build.secrets.env`, in other works remove `EXAMPLE` token from the file name
+- Edit `build.secrets.env` and `build.parameters.env` according to your environment
+- Execute `run.bat`. If you are not using Windows, execute the command within
