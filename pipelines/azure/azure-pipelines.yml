@@ -17,8 +17,8 @@ jobs:
 
     # The job requires a secure file called build.secrets.sh, done following the provided example
     - task: DownloadSecureFile@1
-      name: SASecureInfo
-      displayName: 'Download secure information for images share'
+      name: SecureInfo
+      displayName: 'Download secure information for images transport'
       inputs: 
         secureFile: 'build.secrets.sh'
 
