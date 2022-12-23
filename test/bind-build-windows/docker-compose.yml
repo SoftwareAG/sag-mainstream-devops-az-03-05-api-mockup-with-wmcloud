@@ -6,11 +6,12 @@ services:
     build: ./build
     container_name: bind1
     security_opt:
-      - seccomp=unconfined
+      # this file is inspired from buildah: https://github.com/containers/buildah/blob/main/vendor/github.com/containers/common/pkg/seccomp/seccomp.json
+      - "seccomp=./seccomp.json"
+      # use this only for debugging
+      # - seccomp=unconfined
     devices:
       - "/dev/fuse"
-    cap_add:
-      - "SYS_ADMIN"
     volumes:
       - ./scripts/:/mnt/scripts/
       - ../../:/mnt/project-home/
