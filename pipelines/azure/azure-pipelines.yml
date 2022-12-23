@@ -1,0 +1,49 @@
+# Azure Devops pipeline to build a mockup container invokable from webmethods.io flow services
+
+trigger:
+- main
+- increment*
+
+pool:
+  name: GccAgentsVmss
+  vmImage: Canonical:0001-com-ubuntu-confidential-vm-focal:20_04-lts-gen2:latest
+
+variables:
+  - group: Containerization.Options
+
+jobs:
+
+- job: containerize
+  displayName: "Containerize"
+
+  steps:
+
+    # The job requires a secure file called build.secrets.sh, done following the provided example
+    - task: DownloadSecureFile@1
+      name: SASecureInfo
+      displayName: 'Download secure information for images share'
+      inputs: 
+        secureFile: 'build.secrets.sh'
+
+    # grant execution permissions to the repository scripts
+    - script: find . -type f -name "*.sh" -exec chmod u+x "{}" \;
+      displayName: "Grant shell execution permissions"
+
+    - script: ./pipelines/azure/01.assureJobVariables.sh
+      displayName: "Job Variables"
+
+    - script: ./pipelines/azure/02.prepareAgentMachine.sh
+      displayName: "Prepare Agent"
+
+    - script: ./build/01.checkPrerequisites.sh
+      displayName: "Assure prerequisites"
+
+    - script: ./build/02.getArtifacts.sh
+      displayName: "Get artifacts"
+
+    - script: ./build/03.build.sh
+      displayName: "Build"
+
+    - script: ./build/04.logout.sh
+      displayName: "Logout"
+      condition: always()

@@ -1,0 +1,20 @@
+version: "3.5"
+
+services:
+  my-bind:
+    image: my-bind
+    build: ./build
+    container_name: bind1
+    security_opt:
+      - seccomp=unconfined
+    devices:
+      - "/dev/fuse"
+    cap_add:
+      - "SYS_ADMIN"
+    volumes:
+      - ./scripts/:/mnt/scripts/
+      - ../../:/mnt/project-home/
+    env_file:
+      - build.secrets.env
+      - build.parameters.env
+    entrypoint: /mnt/scripts/containerEntrypoint.sh
