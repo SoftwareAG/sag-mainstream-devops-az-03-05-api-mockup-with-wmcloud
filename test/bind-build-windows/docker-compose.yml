@@ -16,5 +16,4 @@ services:
       - ../../:/mnt/project-home/
     env_file:
       - build.secrets.env
-      - build.parameters.env
     entrypoint: /mnt/scripts/containerEntrypoint.sh

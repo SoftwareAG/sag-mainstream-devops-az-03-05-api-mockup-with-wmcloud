@@ -10,7 +10,9 @@ destinationImageBaseTag="${DST_CONTAINER_IMAGE_REGISTRY_URL}/${DST_CONTAINER_IMA
 buildah bud \
   --isolation=chroot \
   --build-arg __base_image=${baseImageTag} \
-  --build-arg __is_home=${SCR_CONTAINER_IS_HOME} \
+  --build-arg __is_home=${SRC_CONTAINER_IS_HOME} \
+  --build-arg __sag_admin=${SRC_SAGADMIN_USER_NAME} \
+  --build-arg __sag_grp=${SRC_SAGADMIN_GROUP_NAME} \
   -t "${destinationImageBaseTag}:${DST_CONTAINER_IMAGE_REPOSITORY_TAG}" \
   /tmp/buildContext
 
