@@ -26,10 +26,10 @@ jobs:
     - script: find . -type f -name "*.sh" -exec chmod u+x "{}" \;
       displayName: "Grant shell execution permissions"
 
-    - script: ./pipelines/azure/01.assureJobVariables.sh
+    - script: ./pipelines/azure/scripts/01.assureJobVariables.sh
       displayName: "Job Variables"
 
-    - script: ./pipelines/azure/02.prepareAgentMachine.sh
+    - script: ./pipelines/azure/scripts/02.prepareAgentMachine.sh
       displayName: "Prepare Agent"
 
     - script: ./build/01.checkPrerequisites.sh
