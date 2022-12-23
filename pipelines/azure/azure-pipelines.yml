@@ -8,9 +8,6 @@ pool:
   name: GccAgentsVmss
   vmImage: Canonical:0001-com-ubuntu-confidential-vm-focal:20_04-lts-gen2:latest
 
-variables:
-  - group: Containerization.Options
-
 jobs:
 
 - job: containerize
