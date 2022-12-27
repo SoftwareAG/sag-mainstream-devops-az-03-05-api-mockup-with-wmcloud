@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# shellcheck source-path=SCRIPTDIR/..
 . ./build/setParameters.sh
 
 if [ -z ${DST_CONTAINER_IMAGE_REGISTRY_URL+x} ]; then

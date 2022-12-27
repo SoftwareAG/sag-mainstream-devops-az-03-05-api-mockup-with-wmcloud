@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# shellcheck source-path=SCRIPTDIR/..
 . ./build/setParameters.sh
 
 # Artifacts to pull

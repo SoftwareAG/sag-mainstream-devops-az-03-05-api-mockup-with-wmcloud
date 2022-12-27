@@ -4,6 +4,9 @@ echo "##vso[task.setvariable variable=JOB_TIMESTAMP;]$(date +%y-%m-%d'T'%H.%M.%S
 
 echo "Sourcing secure information: Storage Account coordinates and credentials..."
 chmod u+x "${SECUREINFO_SECUREFILEPATH}"
+
+# shellcheck source-path=SCRIPTDIR/../support
+# shellcheck source=build.secrets.EXAMPLE.sh
 . "${SECUREINFO_SECUREFILEPATH}"
 
 echo "##vso[task.setvariable variable=SRC_CONTAINER_IMAGE_REGISTRY_URL;]${SRC_CONTAINER_IMAGE_REGISTRY_URL}"

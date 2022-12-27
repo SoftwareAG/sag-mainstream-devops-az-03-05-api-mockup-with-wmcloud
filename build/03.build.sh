@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# shellcheck source-path=SCRIPTDIR/..
 . ./build/setParameters.sh
 
 cp ./Dockerfile /tmp/buildContext

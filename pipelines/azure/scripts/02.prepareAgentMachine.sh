@@ -36,6 +36,7 @@ sudo apt-get -qq -y update
 echo ">>>>>>>>>>>>>>>> Installing prerequisites..."
 checkLock
 sudo apt-get -qq install -y ca-certificates curl gnupg2 fuse-overlayfs
+# shellcheck disable=1091
 . /etc/os-release
 echo "Installing buildah for OS release ${VERSION_ID}..."
 echo "deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo tee /etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list

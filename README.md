@@ -23,4 +23,3 @@ One principle applied is the separation of code languages in different files for
 In order to test the agent or the test machine has to have:
 
 - git client
-
