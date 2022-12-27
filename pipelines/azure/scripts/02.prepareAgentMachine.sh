@@ -9,7 +9,12 @@ echo "Updating OS software"
 sudo apt -y update
 
 if [ -f /var/lib/dpkg/lock-frontend ]; then
-  echo "File /var/lib/dpkg/lock-frontend exists, sleeping a bit..."
+  echo "File /var/lib/dpkg/lock-frontend exists!"
+  echo "sudo ps aux | grep -i apt"
+  sudo ps aux | grep -i apt
+  echo "sudo lsof /var/lib/dpkg/lock-frontend"
+  sudo lsof /var/lib/dpkg/lock-frontend
+  echo "Seeping a bit..."
   sleep 15
 fi
 
@@ -17,7 +22,12 @@ echo "Updating base libraries..."
 sudo apt-get -qq -y update
 
 if [ -f /var/lib/dpkg/lock-frontend ]; then
-  echo "File /var/lib/dpkg/lock-frontend exists, sleeping a bit..."
+  echo "File /var/lib/dpkg/lock-frontend exists!"
+  echo "sudo ps aux | grep -i apt"
+  sudo ps aux | grep -i apt
+  echo "sudo lsof /var/lib/dpkg/lock-frontend"
+  sudo lsof /var/lib/dpkg/lock-frontend
+  echo "Seeping a bit..."
   sleep 15
 fi
 
@@ -29,14 +39,24 @@ echo "deb http://download.opensuse.org/repositories/devel:/kubic:/libcontainers:
 curl -fsL "https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/xUbuntu_${VERSION_ID}/Release.key" | sudo apt-key add - &&
 
 if [ -f /var/lib/dpkg/lock-frontend ]; then
-  echo "File /var/lib/dpkg/lock-frontend exists, sleeping a bit..."
+  echo "File /var/lib/dpkg/lock-frontend exists!"
+  echo "sudo ps aux | grep -i apt"
+  sudo ps aux | grep -i apt
+  echo "sudo lsof /var/lib/dpkg/lock-frontend"
+  sudo lsof /var/lib/dpkg/lock-frontend
+  echo "Seeping a bit..."
   sleep 15
 fi
 
 sudo apt-get -qq -y update
 
 if [ -f /var/lib/dpkg/lock-frontend ]; then
-  echo "File /var/lib/dpkg/lock-frontend exists, sleeping a bit..."
+  echo "File /var/lib/dpkg/lock-frontend exists!"
+  echo "sudo ps aux | grep -i apt"
+  sudo ps aux | grep -i apt
+  echo "sudo lsof /var/lib/dpkg/lock-frontend"
+  sudo lsof /var/lib/dpkg/lock-frontend
+  echo "Seeping a bit..."
   sleep 15
 fi
 
