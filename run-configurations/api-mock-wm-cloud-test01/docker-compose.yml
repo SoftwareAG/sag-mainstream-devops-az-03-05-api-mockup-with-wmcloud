@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  msr-dev-01:
+    image: ${CONTAINER_REGISTRY_URL}/${CONTAINER_IMAGE_REPOSITORY}:${CONTAINER_IMAGE_TAG}
+    ports:
+      - ${HOST_PORT_PREFIX}55:5555
+    hostname: api-mock-wm-cloud-test-01
+    volumes:
+      - ${HOST_MSR_LICENSE_FILE}:/tmp/license.xml
+      - ./application.properties:/tmp/application.properties
+    environment:
+      - SAG_IS_LICENSE_FILE=/tmp/license.xml
+      - SAG_IS_CONFIG_PROPERTIES=/tmp/application.properties
+      - C1_ILIVE_TENANT_ALIAS
+      - C1_ILIVE_URL
+      - C1_ILIVE_USER
+      - C1_ILIVE_PASS
+      - C1_1_ILIVE_ACCOUNT_ALIAS
+      - C1_1_ILIVE_STAGE
+      - C1_1_ILIVE_ONPREM_HOSTS
+      - C1_1_1_CONNECTOR_NAME

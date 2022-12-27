@@ -1,3 +1,5 @@
 *secrets.env
 *secrets.sh
 nohup.out
+.env
+*.bak

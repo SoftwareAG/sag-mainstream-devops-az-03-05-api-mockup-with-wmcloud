@@ -4,6 +4,7 @@
 . ./build/setParameters.sh
 
 cp ./Dockerfile /tmp/buildContext
+cp -r ./code/is-packages/* /tmp/buildContext/
 
 baseImageTag="${SRC_CONTAINER_IMAGE_REGISTRY_URL}/${SRC_CONTAINER_IMAGE_REPOSITORY_NAME}:${SRC_CONTAINER_IMAGE_REPOSITORY_TAG}"
 destinationImageBaseTag="${DST_CONTAINER_IMAGE_REGISTRY_URL}/${DST_CONTAINER_IMAGE_REPOSITORY_NAME}"
