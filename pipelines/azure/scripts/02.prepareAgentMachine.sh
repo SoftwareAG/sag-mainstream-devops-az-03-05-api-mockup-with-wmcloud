@@ -5,11 +5,17 @@
 # Adding some logs for debugging, looking at file
 # /var/lib/dpkg/lock-frontend
 
-echo "Updating OS software"
+echo "lslocks"
+lslocks
+
+
+echo ">>>>>>>>>>>>>>>>Updating OS software"
 sudo apt -y update
 
 if [ -f /var/lib/dpkg/lock-frontend ]; then
   echo "File /var/lib/dpkg/lock-frontend exists!"
+  echo "lslocks"
+  lslocks
   echo "sudo ps aux | grep -i apt"
   sudo ps aux | grep -i apt
   echo "sudo lsof /var/lib/dpkg/lock-frontend"
@@ -18,7 +24,7 @@ if [ -f /var/lib/dpkg/lock-frontend ]; then
   sleep 15
 fi
 
-echo "Updating base libraries..."
+echo ">>>>>>>>>>>>>>>>Updating base libraries..."
 sudo apt-get -qq -y update
 
 if [ -f /var/lib/dpkg/lock-frontend ]; then
@@ -31,7 +37,7 @@ if [ -f /var/lib/dpkg/lock-frontend ]; then
   sleep 15
 fi
 
-echo "Installing prerequisites..."
+echo ">>>>>>>>>>>>>>>>Installing prerequisites..."
 sudo apt-get -qq install -y ca-certificates curl gnupg2 fuse-overlayfs
 . /etc/os-release
 echo "Installing buildah for OS release ${VERSION_ID}..."
@@ -58,7 +64,9 @@ if [ -f /var/lib/dpkg/lock-frontend ]; then
   sudo lsof /var/lib/dpkg/lock-frontend
   echo "Seeping a bit..."
   sleep 15
-fi
+fi 
+
+echo ">>>>>>>>>>>>>>>>Installing buildah..."
 
 sudo apt-get -qq -y install buildah
 echo "Machine prepared"
