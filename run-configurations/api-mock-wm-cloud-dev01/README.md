@@ -10,6 +10,7 @@ This run configuration is provided for the development of the related code, in t
 - valid Software AG Microservices Runtime license file
 - a git client
 - a Software AG webmethods.io integration tenant, having flow services enabled
+- access to a microservices runtime image, the example considers the 10.15 version from https://containers.softwareag.com
 
 ## Usage
 
