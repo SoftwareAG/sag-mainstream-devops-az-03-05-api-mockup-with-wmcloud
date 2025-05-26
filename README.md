@@ -1,4 +1,6 @@
-# API Mockup deployment with WmCloud and webmethods.io integration proxy service
+# MOVING - API Mockup deployment with WmCloud and webmethods.io integration proxy service
+
+# This repo will be moved away from the Software AG organization
 
 The purpose of this repository is to give an example of a project having the following aspects:
 
